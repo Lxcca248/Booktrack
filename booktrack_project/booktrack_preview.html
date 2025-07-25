@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>BookTrack - Visualização</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      padding: 20px;
+    }
+    h1 {
+      color: #333;
+    }
+    form {
+      margin-bottom: 30px;
+    }
+    input, button {
+      padding: 10px;
+      margin: 5px;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      background: white;
+      margin-bottom: 10px;
+      padding: 10px;
+      border-left: 5px solid #4CAF50;
+    }
+  </style>
+</head>
+<body>
+  <h1>📚 BookTrack</h1>
+
+  <form id="book-form">
+    <input type="text" id="title" placeholder="Título" required />
+    <input type="text" id="author" placeholder="Autor" required />
+    <input type="number" id="pages" placeholder="Páginas" required />
+    <button type="submit">Adicionar Livro</button>
+  </form>
+
+  <h2>Meus Livros</h2>
+  <ul id="book-list">
+    <li><strong>Dom Casmurro</strong> por Machado de Assis ✅</li>
+    <li><strong>A Revolução dos Bichos</strong> por George Orwell</li>
+  </ul>
+
+  <script>
+    document.getElementById('book-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const title = document.getElementById('title').value;
+      const author = document.getElementById('author').value;
+      const pages = document.getElementById('pages').value;
+
+      const li = document.createElement('li');
+      li.innerHTML = `<strong>${title}</strong> por ${author}`;
+      document.getElementById('book-list').appendChild(li);
+
+      // Limpar campos
+      this.reset();
+    });
+  </script>
+</body>
+</html>
